@@ -1,0 +1,32 @@
+
+<% if @article.errors.any? %>
+
+    <h5>The following errors prevented the article from being created</h5>
+
+    <ul>
+      <% @article.errors.full_message.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+
+
+<% end %>
+
+
+<%= form_for :article, url: articles_path do |f| %>
+
+
+
+    <p>
+      <%= f.label :title %> <br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :text %> <br>
+      <%= f.text_field :text %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+
